@@ -36,9 +36,8 @@ source $HOME/.zsh_alias
 # Add ~/.zsh/func to func path
 fpath=($HOME/.zfunc "${fpath[@]}")
 
-autoload -Uz agedu backups df purge-old purge-conf re_ re- unmute 
-autoload -Uz shorten guess wearout
-# autoload -Uz apt-upgrade 
+autoload -Uz agedu apt-upgrade backups df extract purge-old purge-conf
+autoload -Uz re_ re- shorten unmute guess wearout
 
 # Custom prompt
 PS1=%m:%2~%#\ 
