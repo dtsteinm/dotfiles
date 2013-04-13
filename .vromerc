@@ -9,6 +9,9 @@ map K gt
 " Close current tab
 map x dc
 
+" Select last active tab
+map g; <C-^>
+
 " Use letters in Hint mode
 set useletters=1
 
