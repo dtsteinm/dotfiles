@@ -289,6 +289,9 @@ set nowrap
 set ignorecase
 set smartcase
 
+" Easier mode change
+inoremap	jj		<Esc>
+
 " Arrow keys are the devil
 inoremap	<Up>	<NOP>
 inoremap	<Down>	<NOP>
