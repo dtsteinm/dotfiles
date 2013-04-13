@@ -1,0 +1,7 @@
+# Wrapper for agedu disk usage reporting tool
+emulate -L zsh
+
+# If no dir provided, default to home
+if [[ -z $1 ]] 1=$HOME
+# Agedu: scan dir; web output; remove agedu.dat
+/usr/bin/agedu -s $1 --files -w -R 

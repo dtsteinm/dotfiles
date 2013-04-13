@@ -1,0 +1,12 @@
+emulate -L zsh
+
+local -a packages
+packages=$(deborphan --guess-all)
+
+if [[ -n $packages ]]
+	# TODO: Add user verification
+# apt-get purge and autoremove packages, using guessing
+then echo $packages | xargs sudo apt-get --purge -y autoremove
+# If no packages to purge, yay
+else echo "No orphaned packages to purge!"
+fi

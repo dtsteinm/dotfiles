@@ -1,0 +1,1 @@
+sudo smartctl -A /dev/sda | awk '/233/{printf "Wearout on sda: %d%%\n", $4}'

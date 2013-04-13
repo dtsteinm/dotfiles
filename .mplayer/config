@@ -1,0 +1,100 @@
+# Write your default config options here!
+
+# Default Profile
+[default]
+stop-xscreensaver=yes   # Disable X screensaver
+framedrop=no            # Disable dropping of frames
+noslices=yes            # Draw entire frame at once (libmpeg2/libavcodec)
+dr=yes                  # Enable direct rendering
+fs=yes                  # Start in fullscreen by default
+geometry=30%:50%        # Center window on primary monitor
+xineramascreen=0        # Display the video on the default Xinerama monitor
+subfont-osd-scale=2     # Scale on-screen display (2 is readable in
+                        # a window, but not too huge in fullscreen)
+noautosub=yes           # Don't load external subtitles
+nolirc=yes              # Disable LIRC support (it's useless anyway)
+cache=40960             # Use a memory cache
+
+# Audio options:
+channels=2              # Downmix to Stereo (2 channel) sound
+ao=pulse
+afm=ffmpeg,faad,liba52  # Don't use mpg123
+
+# Extension Profiles
+[extension.avi]
+profile-desc="profile for AVI files"
+nocache=yes     # Disable cache (for non-interleaved AVI files)
+vc=ffodivx,ffdivx,ffh264,ffmpeg12,xvid,
+#vc=divx,divxds, # VFW and DShow not enabled in current build
+#vfm=ffmpeg,xvid,theora
+vf-clr=yes
+
+# Video Profiles
+[vdpau]
+profile-desc="profile for VDPAU"
+# Try VDPAU; if not, fallback on other outputs
+vo=vdpau:fps=60:hqscaling=1:queuetime_fs=50:output_surfaces=3
+# Try using VDPAU-specific FFMPEG codecs 
+# -vc help reports problems with ffvc1vdpau and ffwmv3vdpau
+vc=ffodivxvdpau,ffh264vdpau,ffmpeg12vdpau,ffvc1vdpau,ffwmv3vdpau
+vf-clr=yes
+
+[hi10p]
+profile-desc="profile for Hi10P video"
+#vo=gl:slice-height=0,xv,x11
+vo=xv
+vc=ffh264
+# Options for libavcodec: 
+# - use 6 threads (8 is too many?); 
+# - enable optimizations that don't conform to MPEG standards; 
+# - skip unreferenced frames during deblocking; 
+# - skip useless processing steps when decoding frames
+#lavdopts=threads=6:fast:skiploopfilter=nonref:skipframe=default
+
+# Subtitles/Screenshot Profiles
+[extsubs]
+profile-desc="profile for external subtitle files"
+autosub=yes
+
+[ss]
+profile-desc="profile for screenshotting"
+vf=ass,screenshot       # Capture subtitles in screenshots
+
+# DVD Profiles
+[protocol.dvd]
+profile-desc="(empty) profile for dvd:// streams"
+#vf=pp=hb/vb/dr/al/fd
+#vc=ffmpeg12,fffmpeg12vdpau,fmpeg2,
+#afm=ffmpeg,
+#alang=jpn,ja
+#slang=en,unknown
+
+[protocol.dvdnav]
+profile-desc="profile for dvdnav:// streams"
+profile=protocol.dvd
+mouse-movements=yes
+nocache=yes
+
+# Currently unused options...
+# Attempt to use the following video families first
+#vfm=ffmpeg,mpegpes,xvid,theora,
+#afm=ffmpeg,liba52,
+# Stop Mplayer2 from using the scale filter (doesn't work)
+#vf-del=scale
+#monitoraspect=16:9	# Use this for wide monitor, non-square pixels.
+#nocache=yes		# Disable cache (for non-interleaved AVI files)
+#nojoystick=yes		# Another useless feature to disable
+#slave=yes			# Act as slave/backend
+#ontop=yes			# Keep the player window on top of all other windows
+#noconsolecontrols=no	# Don't not accept console input
+#fixed-vo=no		# Draw new window so video is
+					# not centered across Twinview
+#osdlevel=1			# Display only subtitles by default
+#mgslevel=all=3		# Be less verbose?
+#colormatrix=auto:	# ???
+#use-filedir-conf=yes   # Use config options specified with the file
+#vf=ass,screenshot  # Capture subtitles in screenshots
+#vfm=ffmpeg			# Favor the ffmpeg library
+#fps=60             # Force 60 frames/sec
+#volume=30          # Set volume to 85%
+#ao=alsa            # Set default audio output to alsa

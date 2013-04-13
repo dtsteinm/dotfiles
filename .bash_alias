@@ -1,0 +1,42 @@
+# User-defined aliases
+alias cp='cp -iv'
+alias doit='screen -d -R'
+alias grep='grep --color=auto'
+alias irssi='screen -S irc irssi'
+alias ll='ls -Ahl'
+alias ls='ls --color=auto'
+alias mv='mv -iv'
+alias piano='screen -S piano pianobar'
+#alias purge-conf='dpkg -l | awk '"'"'/^rc/{print $2}'"'"' | sudo xargs dpkg --purge'
+alias purge-old='sudo apt-get --purge autoremove `deborphan`' 
+alias rename='rename -v'
+alias rm='rm -Iv'
+alias spc='scp -p'
+alias svi='sudo vi'
+alias svim='sudo vim'
+#alias delthumbs='find ~/.thumbnails -type f -atime +7 -exec rm {} \;'
+#alias dos2unix='fromdos'
+#alias unix2dos='todos'
+#alias katawa='xrandr -r 53.0 -s 960x600 && /home/dylan/bin/katawa/Katawa\ Shoujo.sh && xrandr -r 50.0 -s 2568x900'
+#alias kill9='sudo killall -9'
+#alias links='links2'
+#alias pcgrep='pcregrep'
+#alias re_='rename "s/\ /_/g"'
+#alias re-='rename "s/_/\ /g"'
+#alias unzall='~/bin/unz'
+
+purge-conf(){
+	dpkg -l | awk '/^rc/{print $2}' | sudo xargs dpkg --purge
+}
+re_(){
+	rename 's/\ /_/g' $@
+}
+re-(){
+	rename 's/_/\ /g' $@
+}
+shorten () {
+	curl -s "http://tty0.in/shorten.php?e=$1"
+	echo
+	curl -s "http://waa.ai/api.php?url=$1"
+	echo
+}

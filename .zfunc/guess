@@ -1,0 +1,31 @@
+emulate -L zsh
+
+# TODO: Maybe use line to get max instead of an arg?
+
+# User-defined maximum
+integer max=$1
+# Randomly generated number
+integer NUMBER
+# User's guess at $NUMBER
+integer input 
+
+if [[ $max -gt 1 ]]
+then NUMBER=$[ ( $RANDOM % $max ) +1 ]
+else echo "Invalid entry; supply a number greater than 1"; return 1
+fi
+
+integer count=0
+
+while [[ $input -ne $NUMBER ]]
+do echo -n "Guess a number between 1 and $max: "
+	input=$(line) 
+
+	if [[ $input -gt $NUMBER ]]; then echo "Lower..."
+	elif [[ $input -lt $NUMBER ]]; then echo "Higher..."
+	fi
+
+	count=$count+1
+done
+
+echo "\nYou guessed correctly with $input!"
+echo "It took you $count guess$(if [[ $count -gt 1 ]] echo 'es')."

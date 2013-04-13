@@ -1,0 +1,19 @@
+emulate -L zsh
+
+{ # Begin "always" block
+	function usage(){ echo "Usage: shorten t|w url" }
+
+	# Only perform actions if arguments exist
+	if [[ $# -ne 2 ]] { usage; return 1 }
+
+	case $1 in
+		t)curl -s "http://tty0.in/shorten.php?e=$2" ;;
+		w)curl -s "http://waa.ai/api.php?url=$2" ;;
+		*)usage; return 1 ;;
+	esac
+
+	# Print newline to avoid % in zsh/run-on in bash
+	echo 
+} always {
+	# Get rid of usage message
+	unfunction -m "usage" }

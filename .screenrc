@@ -1,0 +1,35 @@
+# Per-user custom settings #
+#--------------------------#
+
+vbell off # Do not use the visual bell
+bell on
+
+startup_message off
+
+sessionname et-cetera
+
+# Default start up windows
+screen -t zsh 0
+screen -t irssi 1 zsh -c 'command irssi'
+screen -t music 2 zsh -c 'while true; do ncmpcpp; done'
+screen -t vim 3 zsh -c 'while true; do vim; done'
+screen -t python 4 zsh -c 'while true; do python; done'
+screen -t htop 5 zsh -c 'while true; do htop; done'
+select 1
+
+# Bind ^A-, and ^A-. to prev/next
+bind ',' prev
+bind '.' next
+
+# binding F1 - F8 keys to first 8 screens, 
+# F11 = previous | F12 = next
+# bindkey -k k1 select 0
+# bindkey -k k2 select 1
+# bindkey -k k3 select 2
+# bindkey -k k4 select 3
+# bindkey -k k5 select 4
+# bindkey -k k6 select 5
+# bindkey -k k7 select 6
+# bindkey -k k8 select 7
+# bindkey -k F2 next
+# bindkey -k F1 prev

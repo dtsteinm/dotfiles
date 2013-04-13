@@ -1,0 +1,29 @@
+emulate -L zsh
+
+# First arg should be name of client (ex: mpd)
+local client num input
+integer mute 
+
+# If no args provided, default to mpd
+if [[ -z $1 ]]
+then client='mpd'
+else client=$1
+fi
+
+# If there's a 2nd arg, we want to mute 
+# 1 = enable  mute
+# 0 = disable mute
+if [[ -n $2 ]] then mute=1; else mute=0; fi
+
+# Get number identifying client
+num=$(pactl list short clients | \
+	awk "/$client/{print \$1}")
+
+# Get sink input associated with client
+input=$(pactl list short sink-inputs | \
+	awk "/\s$num\s/{print \$1}")
+
+# pactl -n $client set-sink-input-mute $input 0
+# Connect to PA as $client, either enabling or 
+# disabling input mute (see mute above for details)
+pactl -n $client set-sink-input-mute $input $mute

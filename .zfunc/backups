@@ -1,0 +1,67 @@
+# Backup my modified config files
+
+emulate -L zsh 
+setopt extendedglob
+
+# Set array before changing directory (fucking globbing)
+local -a locations
+locations=(apt ddclient.conf fstab gdm3 logrotate. mpd.conf X11 default/tmpfs)
+# Get longest value in array:
+# Explanation of 'max=...'
+# - 'locations': Array we're operating on
+# - '//?/X': Translate any character found to 'X'
+# - '(O)': Flag indicating sort by reverse alphabetical order
+#          (for strings made up of the same character, 
+#          the longest string is closest to 'z')
+# - '(@)': Flag; treat the result of the previous operation
+#          (O) as an array instead of a scalar value (necessary?)
+# - '[1]': Take only the first (longest) item in the resulting array
+# - '#':   Return the length of the preceding string
+# - 's':   Flag for printf statement
+local max=${#${(O@)locations//?/X}[1]}s
+
+# Move to hidden backup directory in user's home
+cd $HOME/.backup
+# Update cached credentials before performing actions
+sudo -v
+
+# For each config dir/file:
+# -print status messages while performing backups
+# -Redirect all output to null, only print 
+# --whether backup succeeds or fails
+for location in $locations; do {
+	printf "Backing up %-$max..." $(echo $location|awk -F . '{print $1}')
+	sudo /usr/bin/rsync -aR /etc/$location* . >&| /dev/null && echo "\t[OK]"|column -t || echo "\t[Failed]"|column -t}
+done
+
+# Old, non-looping code
+# Print status messages while performing backups
+#echo -n "Backing up apt..."
+# Redirect all output to null, only print 
+# whether backup succeeds or fails
+#sudo rsync -a /etc/apt . >&| /dev/null && echo "\t[OK]" || echo "\t[Failed]"
+
+#echo -n "Backing up ddclient..."
+#sudo rsync -a /etc/ddclient.conf . >&| /dev/null && echo "\t[OK]" || echo "\t[Failed]"
+
+#echo -n "Backing up fstab..."
+#sudo rsync -a /etc/fstab . >&| /dev/null && echo "\t[OK]" || echo "\t[Failed]"
+
+#echo -n "Backing up gdm..."
+#sudo rsync -a /etc/gdm3 . >&| /dev/null && echo "\t[OK]" || echo "\t[Failed]"
+
+#echo -n "Backing up logrotate..."
+#sudo rsync -a /etc/logrotate.* . >&| /dev/null && echo "\t[OK]" || echo "\t[Failed]"
+
+#echo -n "Backing up mpd..."
+#sudo rsync -a /etc/mpd.conf . >&| /dev/null && echo "\t[OK]" || echo "\t[Failed]"
+
+#echo -n "Backing up X11..."
+#sudo rsync -a /etc/X11 . >&| /dev/null && echo "\t[OK]" || echo "\t[Failed]"
+
+# Will fail, just for testing
+#echo -n "Testing..."
+#sudo rsync -a /etc/foo/bar . >&| /dev/null && echo "\t[OK]" || echo "\t[Failed]"
+
+# Return to previous working directoy, again, no output
+cd - >&| /dev/null

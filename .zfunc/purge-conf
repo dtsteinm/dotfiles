@@ -1,0 +1,18 @@
+emulate -L zsh
+
+# Get package list to speed up later operations
+local packages="$(dpkg -l | awk '/^rc/')"
+
+# If any packages are listed as "removed, configured", purge
+if [[ -n $packages ]]
+
+	# TODO: Add user verification
+
+# List packages, narrow down to "removed, configured"
+# and print just the package name; merge package names 
+# onto single command starting with 'sudo dpkg --purge'
+then echo $packages | awk '{print $2}' | sudo xargs dpkg --purge
+
+# If no packages to purge, yay
+else echo "No configurations files to purge!"
+fi 

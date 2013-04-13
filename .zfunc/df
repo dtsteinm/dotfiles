@@ -1,0 +1,8 @@
+if [[ $1 != '/' ]]
+then
+	/bin/df -Ph $1 | grep -Fv 'disk/by-uuid' | column -t | \
+		sed 's/d\s*o/d o/'
+else
+	/bin/df -Ph | awk "{if (NR == 1) print}/rootfs/{print}" | \
+		column -t | sed 's/d\s*o/d o/'
+fi

@@ -1,0 +1,14 @@
+import os
+import re
+import sys
+import math
+import time
+import locale
+import shutil
+import timeit
+#import urllib
+#import difflib
+import subprocess
+
+locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
+os.chdir('/home/dylan/scripts')
