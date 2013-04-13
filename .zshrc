@@ -16,6 +16,7 @@ bindkey '\e[A' history-search-backward
 bindkey '\e[B' history-search-forward
 bindkey -M viins '^R' vi-history-search-backward
 bindkey -M vicmd '^R' vi-history-search-backward
+bindkey -M viins 'jj' vi-cmd-mode
 # bindkey -s "^[[18~" "ls -l\n" #<F7>
 bindkey -s '^P' "^Uncmpcpp\n"
 bindkey -s '^N' "^Uunmute\n"
