@@ -15,6 +15,9 @@ map g; <C-^>
 " Use letters in Hint mode
 set useletters=1
 
+" Hint keys focused on home row
+set hintkeys=jlkhfsdag,werui
+
 " Don't load on these sites
 set disablesites=mail.google.com
 
