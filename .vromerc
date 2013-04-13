@@ -9,8 +9,8 @@ map K gt
 " Close current tab
 map x dc
 
-" Use numbers in Hint mode
-set useletters=0
+" Use letters in Hint mode
+set useletters=1
 
 " Don't load on these sites
 set disablesites=mail.google.com
