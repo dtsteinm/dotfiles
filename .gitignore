@@ -47,3 +47,13 @@ irclogs
 log
 mbox
 scripts
+
+# Backups and such
+*old
+*new
+*hist*
+*hst
+*cache
+*backup
+*bak
+*log
