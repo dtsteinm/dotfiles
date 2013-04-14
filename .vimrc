@@ -2,6 +2,11 @@
 " Otherwise, enable vim features, and disable highlighting
 " ...among many other things
 
+" Using undo, backup and swap directories?
+let use_undodir=1
+let use_backupdir=1
+let use_swapdir=1
+
 " Vi vs. Vim
 if v:progname =~? 'vi$' 
 	set compatible
@@ -258,26 +263,43 @@ endif	"end of vi/vim checking if block
 
 " File management
 " Undo
-" where to put undo files (version control)
-if exists("&undodir")
-	set undodir=~/.vim/undo//
+if use_undodir
+	" where to put undo files (version control)
+	if exists("&undodir")
+		set undodir=~/.vim/undo//
+	endif
+	" Create the undo directory if necessary
+	if !filewritable(&undodir)
+		silent !mkdir -p ~/.vim/undo
+	endif
+	set undofile            "use undofiles
+	set undolevels=1000     "maximum # of changes that can be undone
+	set undoreload=10000    "maximum # lines to save for undo on a buffer reload
 endif
-set undofile            "use undofiles
-set undolevels=1000     "maximum # of changes that can be undone
-set undoreload=10000    "maximum # lines to save for undo on a buffer reload
 
 " Backups
-set backup              "make backup files
-
-" where to put backup files
-if exists("&backupdir")
-	set backupdir=~/.vim/backup//
+if use_backupdir	
+	" where to put backup files
+	if exists("&backupdir")
+		set backupdir=~/.vim/backup//
+	endif
+	" Create the backup directory if necessary
+	if !filewritable(&backupdir)
+		silent !mkdir -p ~/.vim/backup
+	endif
+	set backup              "make backup files
 endif
 
 " Swap
-" directory to place swap files
-if exists("&directory")
-	set directory=~/.vim/tmp//
+if use_swapdir
+	" directory to place swap files
+	if exists("&directory")
+		set directory=~/.vim/tmp//
+	endif
+	" Create the swap directory if necessary
+	if !filewritable(&directory)
+		silent !mkdir -p ~/.vim/tmp
+	endif
 endif
 
 " Miscellaneous settings
