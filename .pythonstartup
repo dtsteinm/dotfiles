@@ -6,9 +6,11 @@ import time
 import locale
 import shutil
 import timeit
-#import urllib
-#import difflib
-import subprocess
+#import urllib as url
+#import difflib as diff
+import subprocess as sp
 
 locale.setlocale(locale.LC_ALL, 'en_US.UTF-8')
 os.chdir('/home/dylan/scripts')
+
+woot = 'whoot'
