@@ -2,4 +2,4 @@ emulate -L zsh
 
 if [[ -z $@ ]] { echo "Usage: $0 filenames"; return 1 }
 
-rename 's/_/\ /g' $@ 
+/usr/bin/rename -v 's/_/\ /g' $@ 
