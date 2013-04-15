@@ -1,6 +1,8 @@
 " Faster scrolling
+map h 15h
 map j 10j
 map k 10k
+map l 15l
 
 " Quickly jump between tabs
 map J gT
