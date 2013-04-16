@@ -22,7 +22,7 @@ map g; <C-^>
 set useletters=1
 
 " Hint keys focused on home row
-set hintkeys=asdfgqwertzxcvb
+set hintkeys=asdfgwertzxcv
 
 " Don't load on these sites
 set disablesites=mail.google.com
