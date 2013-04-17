@@ -13,7 +13,9 @@ if v:progname =~? 'vi$'
 	set showmode
 	syntax off
 	let loaded_nerd_comments = 1
+
 else
+
 	" Basic
 	set nocompatible        "use vim defaults (no vi)
 	set shortmess=aTI       "abbrevs, mid-truncate, no intro
@@ -59,13 +61,14 @@ else
 	"Bundle 'alfredodeza/pytest.vim'
 	"Bundle 'vim-scripts/The-NERD-tree'
 	"Bundle 'vim-scripts/AnsiEsc.vim'
-	
+
 	if iCanHazVundle == 0
 		echo "Installing Bundles, please ignore key map error messages"
 		echo ""
 		:BundleInstall
 	endif
 	" End of setting up Vundle
+
 	" General
 	filetype plugin indent on       "load filetype plugins/indent settings
 	set autochdir                   "always switch to the current file directory
