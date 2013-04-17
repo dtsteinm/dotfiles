@@ -209,6 +209,9 @@ else
 	nnoremap <silent> <F4> :set wrap!<CR>
 	inoremap <silent> <F4> <C-o>:set wrap!<CR>
 
+	" Toggle paste mode
+	set pastetoggle=<F2>
+
 	" Spellchecking
 	noremap <silent> <F7> :setlocal spell! spelllang=en_us<CR>
 	inoremap <silent> <F7> <C-o>:setlocal spell! spelllang=en_us<CR>
