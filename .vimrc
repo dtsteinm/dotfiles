@@ -114,10 +114,10 @@ else
 	map <C-l> <C-w>l
 
 	" Buffer navigation
-	nnoremap gt     :bnext<CR>
-	nnoremap gT     :bprev<CR>
-	nnoremap <Leader>d :bd<CR>
-	nnoremap <silent>b	:<C-u>exe "buffer" . v:count1<CR>
+	nnoremap gt	:bnext<CR>
+	nnoremap gT	:bprev<CR>
+	nnoremap <silent><Leader>d	:bd<CR>
+	nnoremap <silent>gb	:<C-u>exe "buffer" . v:count1<CR>
 
     " Toggle search result highlighting
     map <silent><Leader>h	:set nohls!<CR>
