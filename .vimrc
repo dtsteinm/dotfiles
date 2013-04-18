@@ -117,6 +117,7 @@ else
 	nnoremap gt     :bnext<CR>
 	nnoremap gT     :bprev<CR>
 	nnoremap <Leader>d :bd<CR>
+	map <silent>b	:<C-u>exe "buffer" . v:count1<CR>
 
     " Toggle search result highlighting
     map <silent><Leader>h	:set nohls!<CR>
