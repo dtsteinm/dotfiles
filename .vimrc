@@ -50,10 +50,12 @@ else
 	Bundle 'vim-scripts/pep8'
 	Bundle 'vim-scripts/TaskList.vim'
 	Bundle 'vim-scripts/The-NERD-Commenter'
-	Bundle 'fholgado/minibufexpl.vim'
+	Bundle 'sontek/minibufexpl.vim'
 	Bundle 'rob-b/rope-vim'
+	"Bundle 'minibufexpl.vim'
+	"Bundle 'fholgado/minibufexpl.vim'
+	"Bundle 'vim-scripts/EasyMotion'
 	"Bundle 'sontek/rope-vim'
-	"Bundle 'sontek/minibufexpl.vim'
 	"Bundle 'techlivezheng/vim-plugin-minibufexpl'
 	"Bundle 'Valloric/YouCompleteMe'
 	"Bundle 'msanders/snipmate.vim'
@@ -79,7 +81,6 @@ else
 
 	" Vim UI
 	set hlsearch            "highlight searches
-	"set nohls is           "don't hilight results/incsearch
 	set incsearch           "incremental searching
 	"set ruler              "show the current row and column
 	set scrolloff=1         "keep 1 lines when scrolling
@@ -98,8 +99,7 @@ else
 	set background=dark
 
 	" Text Formatting/Layout
-	"set expandtab          "use spaces, not tabs
-	set noexpandtab
+	set noexpandtab         "don't expand tabs to spaces by default
 	set tabstop=4           "tab is 4 spaces
 	set softtabstop=4		"soft tabs 4 spaces
 	set shiftwidth=4        "columns to shift >>/<<
@@ -112,11 +112,18 @@ else
 	map <C-h> <C-w>h
 	map <C-l> <C-w>l
 
+	" Buffer navigation
+	nnoremap gt     :bnext<CR>
+	nnoremap gT     :bprev<CR>
+	nnoremap <Leader>d :bd<CR>
+
+    " Toggle search result highlighting
+    map <silent><Leader>h	:set nohls!<CR>
 	" Task lists
-	map <Leader>td <Plug>TaskList
+	map <Leader>td  <Plug>TaskList
 
 	" Undo diffs
-	map <Leader>g :GundoToggle<CR>
+	map <Leader>g   :GundoToggle<CR>
 
 	" Python folding
 	set foldmethod=indent
@@ -213,7 +220,7 @@ else
 	inoremap <silent> <F4> <C-o>:set wrap!<CR>
 
 	" Toggle paste mode
-	set pastetoggle=<F2>
+	set pastetoggle=<F5>
 
 	" Spellchecking
 	noremap <silent> <F7> :setlocal spell! spelllang=en_us<CR>
@@ -335,3 +342,5 @@ noremap		<Right>	<NOP>
 
 " Write to a protected file (nope)
 "cmap w!! %!sudo tee > /dev/null %
+
+" vim: set ft=vim:
