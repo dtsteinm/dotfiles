@@ -6,6 +6,7 @@
 let use_undodir=1
 let use_backupdir=1
 let use_swapdir=1
+let use_viewdir=0
 
 " Vi vs. Vim
 if v:progname =~? 'vi$' 
@@ -233,9 +234,20 @@ else
 		" au BufReadPre * setlocal foldmethod=indent|syntax
 		" au BufWinEnter * if &fdm == 'marker' | setlocal foldmethod=manual | endif
 	" augroup END
-	" Save unmarked folds
-	autocmd BufWinLeave * if expand("%") != "" | mkview | endif
-	autocmd BufWinEnter * if expand("%") != "" | silent loadview | endif
+
+	" Save unmarked folds and other options
+	if use_viewdir
+		" where to put undo files (version control)
+		if exists("&viewdir")
+			set undodir=~/.vim/view//
+		endif
+		" Create the undo directory if necessary
+		if !filewritable(&viewdir)
+			silent !mkdir -p ~/.vim/view
+		endif
+		autocmd BufWinLeave * if expand("%") != "" | mkview | endif
+		autocmd BufWinEnter * if expand("%") != "" | silent loadview | endif
+	endif
 
 
 	" F8 fold create
