@@ -53,20 +53,11 @@ else
 	Bundle 'vim-scripts/The-NERD-Commenter'
 	Bundle 'sontek/minibufexpl.vim'
 	Bundle 'rob-b/rope-vim'
-	"Bundle 'minibufexpl.vim'
-	"Bundle 'fholgado/minibufexpl.vim'
-	"Bundle 'vim-scripts/EasyMotion'
-	"Bundle 'sontek/rope-vim'
-	"Bundle 'techlivezheng/vim-plugin-minibufexpl'
 	"Bundle 'Valloric/YouCompleteMe'
+	"Bundle 'Shougo/neocomplcache'
 	"Bundle 'msanders/snipmate.vim'
-	"Bundle 'wincent/Command-T'
-	"Bundle 'mitechie/pyflakes-pathogen'
 	"Bundle 'mileszs/ack.vim'
 	"Bundle 'davidhalter/jedi-vim'
-	"Bundle 'alfredodeza/pytest.vim'
-	"Bundle 'vim-scripts/The-NERD-tree'
-	"Bundle 'vim-scripts/AnsiEsc.vim'
 
 	if iCanHazVundle == 0
 		echo "Installing Bundles, please ignore key map error messages"
@@ -133,6 +124,18 @@ else
 
 	" PEP8
 	let g:pep8_map='<Leader>8'
+
+	" Strip trailing whitespace, return to cursors at save
+	function! <SID>StripTrailingWhitespace()   
+		let l = line(".")
+		let c = col(".")
+		%s/\s\+$//e
+		call cursor(l, c)
+	endfunction
+
+	autocmd FileType c,cpp,python,sh autocmd 
+				\BufWritePre <buffer> :call <SID>StripTrailingWhitespace()
+
 
 	" FuzzyFinder data directory
 	let g:fuf_dataDir='~/.vim/fuf-data'
