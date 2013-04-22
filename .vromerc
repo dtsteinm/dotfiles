@@ -13,8 +13,8 @@ map J gT
 map K gt
 
 " Open Hints in new tabs
-map f F
-map F f
+" map f F
+" map F f
 
 " Close current tab
 map x dc
