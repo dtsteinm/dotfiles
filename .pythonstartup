@@ -6,6 +6,7 @@ import time
 import locale
 import shutil
 import timeit
+import random as rand
 #import urllib as url
 #import difflib as diff
 import subprocess as sp
