@@ -12,15 +12,18 @@ map l 15l
 map J gT
 map K gt
 
-" Open Hints in new tabs
-map f F
-map F f
+" Select last active tab
+map g; <C-^>
 
 " Close current tab
 map x dc
 
-" Select last active tab
-map g; <C-^>
+" Allow adding a bookmark w/Ctrl-D
+unmap <C-d>
+
+" Open Hints in new tabs
+map f F
+map F f
 
 " Use letters in Hint mode
 set useletters=1
