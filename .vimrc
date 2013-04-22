@@ -42,9 +42,9 @@ else
 	Bundle 'tpope/vim-surround'
 	Bundle 'tpope/vim-fugitive'
 	Bundle 'tpope/vim-git'
-	Bundle 'ervandew/supertab'
+	"Bundle 'ervandew/supertab'
 	Bundle 'sjl/gundo.vim'
-	Bundle 'fs111/pydoc.vim'
+	"Bundle 'fs111/pydoc.vim'
 	Bundle 'reinh/vim-makegreen'
 	Bundle 'vim-scripts/L9'
 	Bundle 'vim-scripts/FuzzyFinder'
@@ -52,12 +52,12 @@ else
 	Bundle 'vim-scripts/TaskList.vim'
 	Bundle 'vim-scripts/The-NERD-Commenter'
 	Bundle 'sontek/minibufexpl.vim'
-	Bundle 'rob-b/rope-vim'
+	"Bundle 'rob-b/rope-vim'
 	"Bundle 'Valloric/YouCompleteMe'
 	"Bundle 'Shougo/neocomplcache'
 	"Bundle 'msanders/snipmate.vim'
 	"Bundle 'mileszs/ack.vim'
-	"Bundle 'davidhalter/jedi-vim'
+	Bundle 'davidhalter/jedi-vim'
 
 	if iCanHazVundle == 0
 		echo "Installing Bundles, please ignore key map error messages"
@@ -141,13 +141,13 @@ else
 	let g:fuf_dataDir='~/.vim/fuf-data'
 
 	" Jedi-vim Goto
-	"let g:jedi#goto_definition = "<Leader>j"
-	"map <buffer><Leader>j :call jedi#goto()<CR>
+	let g:jedi#goto_definition = "<Leader>j"
+	map <silent><buffer><Leader>j :call jedi#goto()<CR>
 
-	" Tab completion/documentation
-	au FileType python set omnifunc=pythoncomplete#Complete
-	let g:SuperTabDefaultCompletionType = "context"
-	set completeopt=menuone,longest,preview
+	" Tab completion/documentation (SuperTab)
+	"au FileType python set omnifunc=pythoncomplete#Complete
+	"let g:SuperTabDefaultCompletionType = "context"
+	"set completeopt=menuone,longest,preview
 
 	" NERDTree File Browser
 	"map <Leader>n :NERDTreeToggle<CR>
@@ -157,9 +157,9 @@ else
 
 	" Ropevim
 	" Go to definition
-	map <Leader>j :RopeGotoDefinition<CR>
+	"map <Leader>j :RopeGotoDefinition<CR>
 	" Rename/Refactor
-	map <Leader>r :RopeRename<CR>
+	"map <Leader>r :RopeRename<CR>
 
 	" Ack Searching
 	"nmap <Leader>a <Esc>:Ack!
