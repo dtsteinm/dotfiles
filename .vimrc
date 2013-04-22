@@ -42,7 +42,7 @@ else
 	Bundle 'tpope/vim-surround'
 	Bundle 'tpope/vim-fugitive'
 	Bundle 'tpope/vim-git'
-	"Bundle 'ervandew/supertab'
+	Bundle 'ervandew/supertab'
 	Bundle 'sjl/gundo.vim'
 	"Bundle 'fs111/pydoc.vim'
 	Bundle 'reinh/vim-makegreen'
@@ -53,7 +53,7 @@ else
 	Bundle 'vim-scripts/The-NERD-Commenter'
 	Bundle 'sontek/minibufexpl.vim'
 	"Bundle 'rob-b/rope-vim'
-	"Bundle 'Valloric/YouCompleteMe'
+	" Bundle 'Valloric/YouCompleteMe'
 	"Bundle 'Shougo/neocomplcache'
 	"Bundle 'msanders/snipmate.vim'
 	"Bundle 'mileszs/ack.vim'
@@ -68,7 +68,7 @@ else
 
 	" General
 	filetype plugin indent on       "load filetype plugins/indent settings
-	set autochdir                   "always switch to the current file directory
+	" set autochdir                   "always switch to the current file directory
 	set backspace=indent,eol,start  "make backspace more flexible
 
 	" Vim UI
@@ -118,6 +118,10 @@ else
 	" Undo diffs
 	map <Leader>g   :GundoToggle<CR>
 
+	" Ctrl-u/w start new undo block
+	inoremap <C-u> <C-g>u<C-u>
+	inoremap <C-w> <C-g>u<C-u>
+
 	" Python folding
 	set foldmethod=indent
 	set foldlevel=99
@@ -143,11 +147,16 @@ else
 	" Jedi-vim Goto
 	let g:jedi#goto_definition = "<Leader>j"
 	map <silent><buffer><Leader>j :call jedi#goto()<CR>
+    let g:jedi#rename_command = "<Leader>r"
+    let g:jedi#goto_command = "<Leader>gd"
+	let g:jedi#popup_on_dot = 0
+	"let g:jedi#autocompletion_command = "<Tab>"
 
 	" Tab completion/documentation (SuperTab)
-	"au FileType python set omnifunc=pythoncomplete#Complete
-	"let g:SuperTabDefaultCompletionType = "context"
-	"set completeopt=menuone,longest,preview
+	" au FileType python set omnifunc=pythoncomplete#Complete
+	" au FileType python set omnifunc=jedi#complete
+	let g:SuperTabDefaultCompletionType = "context"
+	" set completeopt=menuone,longest,preview
 
 	" NERDTree File Browser
 	"map <Leader>n :NERDTreeToggle<CR>
