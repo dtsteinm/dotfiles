@@ -39,7 +39,7 @@ else
 	Bundle 'gmarik/vundle'
 	Bundle 'Syntastic'
 	Bundle 'altercation/vim-colors-solarized'
-	Bundle 'sontek/minibufexpl.vim'
+	Bundle 'fholgado/minibufexpl.vim'
 	Bundle 'tpope/vim-surround'
 	Bundle 'tpope/vim-fugitive'
 	Bundle 'tpope/vim-git'
