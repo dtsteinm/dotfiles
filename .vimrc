@@ -145,12 +145,11 @@ else
 	let g:fuf_dataDir='~/.vim/fuf-data'
 
 	" Jedi-vim Goto
+	let g:jedi#popup_on_dot = 0
+    let g:jedi#goto_command = "<Leader>gd"
+    let g:jedi#rename_command = "<Leader>r"
 	let g:jedi#goto_definition = "<Leader>j"
 	map <silent><buffer><Leader>j :call jedi#goto()<CR>
-    let g:jedi#rename_command = "<Leader>r"
-    let g:jedi#goto_command = "<Leader>gd"
-	let g:jedi#popup_on_dot = 0
-	"let g:jedi#autocompletion_command = "<Tab>"
 
 	" Tab completion/documentation (SuperTab)
 	" au FileType python set omnifunc=pythoncomplete#Complete
@@ -160,6 +159,7 @@ else
 
 	" NERDTree File Browser
 	"map <Leader>n :NERDTreeToggle<CR>
+
 	" FuzzyFinder
 	map <Leader>f :FufFile<CR>
 	map <Leader>b :FufBuffer<CR>
@@ -207,8 +207,8 @@ else
 	" Misc keybinds
 	" Numbering/Relative Numbering
 	" Call that thing
-	nnoremap <silent> <F2> :call NumberLines()<CR>
-	inoremap <silent> <F2> <C-o>:call NumberLines()<CR>
+	nnoremap <silent><F2> :call NumberLines()<CR>
+	inoremap <silent><F2> <C-o>:call NumberLines()<CR>
 	" If normal numbering is displayed, force a change 
 	" to relative numbers (turns off normal numbering); 
 	" if relative numbers are displayed, force rnu 
@@ -226,19 +226,19 @@ else
 	endfunc
 
 	" Quickly toggle expandtab (insert spaces, not tabs)
-	nnoremap <silent> <F3> :set expandtab!<CR>
-	inoremap <silent> <F3> <C-o>:set expandtab!<CR>
+	nnoremap <silent><F3> :set expandtab!<CR>
+	inoremap <silent><F3> <C-o>:set expandtab!<CR>
 
 	" Toggle wraparound
-	nnoremap <silent> <F4> :set wrap!<CR>
-	inoremap <silent> <F4> <C-o>:set wrap!<CR>
+	nnoremap <silent><F4> :set wrap!<CR>
+	inoremap <silent><F4> <C-o>:set wrap!<CR>
 
 	" Toggle paste mode
 	set pastetoggle=<F5>
 
 	" Spellchecking
-	noremap <silent> <F7> :setlocal spell! spelllang=en_us<CR>
-	inoremap <silent> <F7> <C-o>:setlocal spell! spelllang=en_us<CR>
+	noremap <silent><F7> :setlocal spell! spelllang=en_us<CR>
+	inoremap <silent><F7> <C-o>:setlocal spell! spelllang=en_us<CR>
 
 	" Folding
 	"set foldmethod=manual
@@ -271,7 +271,7 @@ else
 	onoremap <F9> <C-c>za
 	vnoremap <F9> zf
 	" Spacebar toggle
-	nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+	nnoremap <silent><Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 	vnoremap <Space> zf
 
 	" Configure plugins
