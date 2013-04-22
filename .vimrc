@@ -39,25 +39,25 @@ else
 	Bundle 'gmarik/vundle'
 	Bundle 'Syntastic'
 	Bundle 'altercation/vim-colors-solarized'
+	Bundle 'sontek/minibufexpl.vim'
 	Bundle 'tpope/vim-surround'
 	Bundle 'tpope/vim-fugitive'
 	Bundle 'tpope/vim-git'
 	Bundle 'ervandew/supertab'
 	Bundle 'sjl/gundo.vim'
-	"Bundle 'fs111/pydoc.vim'
 	Bundle 'reinh/vim-makegreen'
 	Bundle 'vim-scripts/L9'
 	Bundle 'vim-scripts/FuzzyFinder'
 	Bundle 'vim-scripts/pep8'
 	Bundle 'vim-scripts/TaskList.vim'
 	Bundle 'vim-scripts/The-NERD-Commenter'
-	Bundle 'sontek/minibufexpl.vim'
+	Bundle 'davidhalter/jedi-vim'
+	"Bundle 'fs111/pydoc.vim'
 	"Bundle 'rob-b/rope-vim'
-	" Bundle 'Valloric/YouCompleteMe'
+	"Bundle 'Valloric/YouCompleteMe'
 	"Bundle 'Shougo/neocomplcache'
 	"Bundle 'msanders/snipmate.vim'
 	"Bundle 'mileszs/ack.vim'
-	Bundle 'davidhalter/jedi-vim'
 
 	if iCanHazVundle == 0
 		echo "Installing Bundles, please ignore key map error messages"
@@ -68,7 +68,7 @@ else
 
 	" General
 	filetype plugin indent on       "load filetype plugins/indent settings
-	" set autochdir                   "always switch to the current file directory
+	set autochdir                   "always switch to the current file directory
 	set backspace=indent,eol,start  "make backspace more flexible
 
 	" Vim UI
