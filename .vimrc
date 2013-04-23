@@ -104,6 +104,13 @@ else
 	map <C-h> <C-w>h
 	map <C-l> <C-w>l
 
+	" Navigate windows without leaving Insert mode
+	inoremap <C-j> <C-o><C-w>j
+	inoremap <C-k> <C-o><C-w>k
+	inoremap <C-h> <C-o><C-w>h
+	inoremap <C-l> <C-o><C-w>l
+
+
 	" Open new split window
 	map <silent><Leader>s :split<CR>
 	map <silent><Leader>x :close<CR>
