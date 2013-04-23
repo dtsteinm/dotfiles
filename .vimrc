@@ -1,6 +1,8 @@
 " If program started as 'vi', use compatibility mode
 " Otherwise, enable vim features, and disable highlighting
 " ...among many other things
+" TODO: Place some features, functions and mappings into separate
+"		files, particularly Vundle stuff.
 
 " Using undo, backup and swap directories?
 let use_undodir=1
@@ -110,7 +112,6 @@ else
 	inoremap <C-h> <C-o><C-w>h
 	inoremap <C-l> <C-o><C-w>l
 
-
 	" Open new split window
 	map <silent><Leader>s :split<CR>
 	map <silent><Leader>x :close<CR>
@@ -123,6 +124,7 @@ else
 
     " Toggle search result highlighting
     map <silent><Leader>h	:set nohls!<CR>
+
 	" Task lists
 	map <Leader>td  <Plug>TaskList
 
@@ -133,13 +135,23 @@ else
 	inoremap <C-u> <C-g>u<C-u>
 	inoremap <C-w> <C-g>u<C-w>
 
-	" TODO: prompt user for message?
+	" Save file (<C-s> if not for flow control)
+	nnoremap <Leader>w :write!<CR>
+	inoremap <Leader>w <Esc>:write!<CR>
+
+	" Write and quit all files
+	nnoremap <Leader>q :wqa!<CR>
+	inoremap <Leader>q <Esc>:wqa!<CR>
+
 	" Quickly commit and push changes
 	nnoremap <Leader>gc :write \| Gcommit %<CR>
 	nnoremap <Leader>gp :Git push<CR>
+
+	" See a git diff of the current file
+	map <silent><Leader>gd :Gdiff<CR>
 	
 	" Source (load) a file
-	nnoremap <silent><Leader>l :write \| source %<CR>
+	nnoremap <Leader>l :write \| source %<CR>
 
 	" Python folding
 	set foldmethod=indent
@@ -158,7 +170,6 @@ else
 
 	autocmd FileType c,cpp,python,sh autocmd 
 				\BufWritePre <buffer> :call <SID>StripTrailingWhitespace()
-
 
 	" FuzzyFinder data directory
 	let g:fuf_dataDir='~/.vim/fuf-data'
@@ -224,6 +235,9 @@ else
 	inoremap # X<BS>#
 
 	" Misc keybinds
+	" TODO: Consider putting some of these under <Leader>
+	"		also, consider using some of these:
+	"		http://vim.wikia.com/wiki/VimTip159
 	" Numbering/Relative Numbering
 	" Call that thing
 	nnoremap <silent><F2> :call NumberLines()<CR>
