@@ -140,7 +140,7 @@ else
 
 	" Save file (<C-s> if not for flow control)
 	nnoremap <Leader>w :write!<CR>
-	inoremap <Leader>w <C-o>:write!<CR>
+	inoremap <Leader>w <Esc>:write!<CR>
 
 	" Quit all files
 	nnoremap <Leader>q :qa<CR>
@@ -156,12 +156,12 @@ else
 	nnoremap <Leader>gs :Git status<CR>
 
 	" See a git diff of the current file
-	nnoremap <silent><Leader>gd :Gdiff<CR>
-	inoremap <silent><Leader>gd <Esc>:Gdiff<CR>
+	map <silent><Leader>gd		:CMiniBufExplorer<CR> :Gdiff<CR>
+	inoremap <silent><Leader>gd <Esc>:CMiniBufExplorer<CR> :Gdiff<CR>
 	
 	" Source (load) a file
-	nnoremap <Leader>l :write \| source %<CR>
-	inoremap <Leader>l <Esc>:write \| source %<CR>
+	nnoremap <Leader>l :write \| source % \| nohls<CR>
+	inoremap <Leader>l <Esc>:write \| source % \| nohls<CR>
 
 	" Python folding
 	set foldmethod=indent
