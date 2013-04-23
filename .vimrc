@@ -113,8 +113,10 @@ else
 	inoremap <C-l> <C-o><C-w>l
 
 	" Open new split window
-	map <silent><Leader>s :split<CR>
-	map <silent><Leader>x :close<CR>
+	nnoremap <silent><Leader>s :split<CR>
+	inoremap <silent><Leader>s <C-o>:split<CR>
+	nnoremap <silent><Leader>x :close<CR>
+	inoremap <silent><Leader>x <C-o>:close<CR>  "Careful with this one
 
 	" Buffer navigation
 	nnoremap gt	:bnext<CR>
@@ -123,7 +125,8 @@ else
 	nnoremap <silent>gb	:<C-u>exe "buffer" . v:count1<CR>
 
     " Toggle search result highlighting
-    map <silent><Leader>h	:set nohls!<CR>
+    nnoremap <silent><Leader>h	:set nohls!<CR>
+    inoremap <silent><Leader>h	<C-o>:set nohls!<CR>
 
 	" Task lists
 	map <Leader>td  <Plug>TaskList
@@ -137,21 +140,28 @@ else
 
 	" Save file (<C-s> if not for flow control)
 	nnoremap <Leader>w :write!<CR>
-	inoremap <Leader>w <Esc>:write!<CR>
+	inoremap <Leader>w <C-o>:write!<CR>
+
+	" Quit all files
+	nnoremap <Leader>q :qa<CR>
+	inoremap <Leader>q <Esc>:qa<CR>
 
 	" Write and quit all files
-	nnoremap <Leader>q :wqa!<CR>
-	inoremap <Leader>q <Esc>:wqa!<CR>
+	nnoremap <Leader>Q :wqa!<CR>
+	inoremap <Leader>Q <Esc>:wqa!<CR>
 
 	" Quickly commit and push changes
 	nnoremap <Leader>gc :write \| Gcommit %<CR>
 	nnoremap <Leader>gp :Git push<CR>
+	nnoremap <Leader>gs :Git status<CR>
 
 	" See a git diff of the current file
-	map <silent><Leader>gd :Gdiff<CR>
+	nnoremap <silent><Leader>gd :Gdiff<CR>
+	inoremap <silent><Leader>gd <Esc>:Gdiff<CR>
 	
 	" Source (load) a file
 	nnoremap <Leader>l :write \| source %<CR>
+	inoremap <Leader>l <Esc>:write \| source %<CR>
 
 	" Python folding
 	set foldmethod=indent
@@ -173,6 +183,8 @@ else
 
 	" FuzzyFinder data directory
 	let g:fuf_dataDir='~/.vim/fuf-data'
+	let g:fuf_dir_exclude = '\v(^|[/\\])\.(hg|git|bzr|ropeproject)($|[/\\])'
+	let g:fuf_file_exclude = '\v\~$|\.(o|exe|dll|bak|orig|swp|pyc)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
 
 	" Jedi-vim Goto
 	let g:jedi#popup_on_dot = 0
