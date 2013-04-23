@@ -15,7 +15,9 @@ screen -t music 2 zsh -c 'while true; do ncmpcpp; done'
 screen -t vim 3 zsh -c 'while true; do vim; done'
 screen -t python 4 zsh -c 'while true; do python; done'
 screen -t htop 5 zsh -c 'while true; do htop; done'
-screen -t repos 6 zsh -c 'cd ~/repos'
+chdir '/home/dylan/repos/'
+screen -t repos 6 zsh
+chdir '/home/dylan/'
 select 1
 
 # Bind ^A-, and ^A-. to prev/next
