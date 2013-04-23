@@ -104,6 +104,10 @@ else
 	map <C-h> <C-w>h
 	map <C-l> <C-w>l
 
+	" Open new split window
+	map <silent><Leader>s :split<CR>
+	map <silent><Leader>x :close<CR>
+
 	" Buffer navigation
 	nnoremap gt	:bnext<CR>
 	nnoremap gT	:bprev<CR>
@@ -120,7 +124,15 @@ else
 
 	" Ctrl-u/w start new undo block
 	inoremap <C-u> <C-g>u<C-u>
-	inoremap <C-w> <C-g>u<C-u>
+	inoremap <C-w> <C-g>u<C-w>
+
+	" TODO: prompt user for message?
+	" Quickly commit and push changes
+	nnoremap <Leader>gc :write \| Gcommit %<CR>
+	nnoremap <Leader>gp :Git push<CR>
+	
+	" Source (load) a file
+	nnoremap <silent><Leader>l :write \| source %<CR>
 
 	" Python folding
 	set foldmethod=indent
