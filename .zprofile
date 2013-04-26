@@ -1,4 +1,4 @@
 #source $HOME/.profile
-mpd &>| /dev/null
-autoplay info &>| /dev/null
+mpd
+autoplay start &>| /dev/null
 supybot -d /home/dylan/supybot/DVSBot.conf 
