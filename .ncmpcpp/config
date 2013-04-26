@@ -207,9 +207,9 @@ song_list_format = "{%p - }|{%A - }|{%a - }{%t}|{$8%f$9}$R{$3(%l)$9}"
 ## text attributes listed above.
 ##
 
-now_playing_prefix = "$u"
+now_playing_prefix = "$u$5"
 
-now_playing_suffix = "$/u"
+now_playing_suffix = "$9$/u"
 
 browser_playlist_prefix = "$2$bplaylist$/b$9 "
 
@@ -458,9 +458,9 @@ media_library_display_date = "no"
 #
 ##### colors definitions #####
 
-colors_enabled = "no"
+#colors_enabled = "no"
 
-#empty_tag_color = "cyan"
+empty_tag_color = "blue"
 #
 #header_window_color = "default"
 #
@@ -470,7 +470,7 @@ colors_enabled = "no"
 #
 #state_flags_color = "default"
 #
-#main_window_color = "yellow"
+main_window_color = "cyan"
 #
 #color1 = "white"
 #
@@ -478,7 +478,7 @@ colors_enabled = "no"
 #
 #main_window_highlight_color = "yellow"
 #
-#progressbar_color = "default"
+progressbar_color = "blue"
 #
 #statusbar_color = "default"
 #
@@ -486,7 +486,7 @@ colors_enabled = "no"
 #
 #active_column_color = "red"
 #
-#visualizer_color = "yellow"
+visualizer_color = "yellow"
 #
 #window_border_color = "green"
 #
