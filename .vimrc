@@ -87,6 +87,7 @@ else
 	"colorscheme oceanblack256
 	"colorscheme wombat256
 	colorscheme solarized
+	let g:solarized_termtrans='1'
 
 	" If using a dark background within the editing area and syntax highlighting
 	" turn on this option as well
@@ -156,8 +157,8 @@ else
 	nnoremap <Leader>gs :Git status<CR>
 
 	" See a git diff of the current file
-	map <silent><Leader>gd		:CMiniBufExplorer<CR> :Gdiff<CR>
-	inoremap <silent><Leader>gd <Esc>:CMiniBufExplorer<CR> :Gdiff<CR>
+	map <silent><Leader>gd		:MBEClose<CR> :Gdiff<CR>
+	inoremap <silent><Leader>gd <Esc>:MBEClose<CR> :Gdiff<CR>
 	
 	" Source (load) a file
 	nnoremap <Leader>l :write \| source % \| nohls<CR>
