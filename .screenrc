@@ -5,6 +5,7 @@ vbell off # Do not use the visual bell
 bell on
 
 startup_message off
+defutf8 on
 
 sessionname et-cetera
 
