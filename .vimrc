@@ -53,9 +53,9 @@ else
 	Bundle 'vim-scripts/pep8'
 	Bundle 'vim-scripts/TaskList.vim'
 	Bundle 'vim-scripts/The-NERD-Commenter'
-	Bundle 'davidhalter/jedi-vim'
+	Bundle 'rob-b/rope-vim'
+	"Bundle 'davidhalter/jedi-vim'
 	"Bundle 'fs111/pydoc.vim'
-	"Bundle 'rob-b/rope-vim'
 	"Bundle 'Valloric/YouCompleteMe'
 	"Bundle 'Shougo/neocomplcache'
 	"Bundle 'msanders/snipmate.vim'
@@ -120,10 +120,10 @@ else
 	inoremap <silent><Leader>x <C-o>:close<CR>  "Careful with this one
 
 	" Buffer navigation
-	nnoremap gt	:bnext<CR>
-	nnoremap gT	:bprev<CR>
-	nnoremap <silent><Leader>d	:bd<CR>
-	nnoremap <silent>gb	:<C-u>exe "buffer" . v:count1<CR>
+	map gt	:bnext<CR>
+	map gT	:bprev<CR>
+	map <silent><Leader>d	:bdelete<CR>
+	map <silent>gb	:<C-u>exe "buffer" . v:count1<CR>
 
     " Toggle search result highlighting
     nnoremap <silent><Leader>h	:set nohls!<CR>
@@ -157,8 +157,11 @@ else
 	nnoremap <Leader>gs :Git status<CR>
 
 	" See a git diff of the current file
-	map <silent><Leader>gd		:MBEClose<CR> :Gdiff<CR>
-	inoremap <silent><Leader>gd <Esc>:MBEClose<CR> :Gdiff<CR>
+	map		<silent><Leader>gd		:CMiniBufExplorer<CR> :Gdiff<CR>
+	imap	<silent><Leader>gd		<Esc>:CMiniBufExplorer<CR> :Gdiff<CR>
+	" CMiniBufExplorer changed to MBEClose in develop branch
+	" map		<silent><Leader>gd		:MBEClose<CR> :Gdiff<CR>
+	" imap	<silent><Leader>gd		<Esc>:MBEClose<CR> :Gdiff<CR>
 	
 	" Source (load) a file
 	nnoremap <Leader>l :write \| source % \| nohls<CR>
@@ -188,17 +191,17 @@ else
 	let g:fuf_file_exclude = '\v\~$|\.(o|exe|dll|bak|orig|swp|pyc)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
 
 	" Jedi-vim Goto
-	let g:jedi#popup_on_dot = 0
-    let g:jedi#goto_command = "<Leader>gd"
-    let g:jedi#rename_command = "<Leader>r"
-	let g:jedi#goto_definition = "<Leader>j"
-	map <silent><buffer><Leader>j :call jedi#goto()<CR>
+	" let g:jedi#popup_on_dot = 0
+	" let g:jedi#goto_command = "<Leader>gt"
+    " let g:jedi#rename_command = "<Leader>r"
+	" let g:jedi#goto_definition = "<Leader>j"
+	" map <silent><buffer><Leader>j :call jedi#goto()<CR>
 
 	" Tab completion/documentation (SuperTab)
-	" au FileType python set omnifunc=pythoncomplete#Complete
+	au FileType python set omnifunc=pythoncomplete#Complete
 	" au FileType python set omnifunc=jedi#complete
 	let g:SuperTabDefaultCompletionType = "context"
-	" set completeopt=menuone,longest,preview
+	set completeopt=menuone,longest,preview
 
 	" NERDTree File Browser
 	"map <Leader>n :NERDTreeToggle<CR>
@@ -209,9 +212,9 @@ else
 
 	" Ropevim
 	" Go to definition
-	"map <Leader>j :RopeGotoDefinition<CR>
+    map <Leader>j :RopeGotoDefinition<CR>
 	" Rename/Refactor
-	"map <Leader>r :RopeRename<CR>
+    map <Leader>r :RopeRename<CR>
 
 	" Ack Searching
 	"nmap <Leader>a <Esc>:Ack!
