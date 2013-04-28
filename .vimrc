@@ -152,7 +152,7 @@ else
 	inoremap <Leader>Q <Esc>:wqa!<CR>
 
 	" Quickly commit and push changes
-	nnoremap <Leader>gc :write \| Gcommit %<CR>
+	nnoremap <Leader>gc :write \| Gcommit %:p<CR>
 	nnoremap <Leader>gp :Git push<CR>
 	nnoremap <Leader>gs :Git status<CR>
 
