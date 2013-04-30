@@ -200,6 +200,12 @@ input {
 audio_output {
 	type		"alsa"
 	name		"MPD ALSA Output"
+	# device		"mpdvol"
+	# mixer_type	"alsa"
+	# mixer_device "mpdvol"
+	# mixer_control "MPD"
+	# options		"dev=dmixer"
+	# device		"plug:dmix"
 #	device		"hw:0,0"		# optional
 #	format		"44100:16:2"	# optional
 #	mixer_device	"default"	# optional
@@ -331,13 +337,13 @@ audio_output {
 # setting is used other sound applications will be affected by the volume
 # being controlled by MPD.
 #
-#mixer_type			"hardware"
+# mixer_type			"hardware"
 #
 # An example for controlling all mixers through software. This will control
 # all controls, even if the mixer is not supported by the device and will not
 # affect any other sound producing applications.
 #
-#mixer_type			"software"
+mixer_type			"software"
 #
 # This example will not allow MPD to touch the mixer at all and will disable
 # all volume controls.
