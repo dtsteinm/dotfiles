@@ -11,6 +11,12 @@ URxvt*.shading: 20
 URxvt.foreground: #B8B8B8
 ! URxvt.foreground: #B0B0B0
 ! URxvt.background: 0
+! URxvt*colorRV: true
+URxvt*cursorColor: white
+URxvt*cursorColor2: black
+URxvt*highlightColor: white
+URxvt*highlightTextColor: black
+
 ! scrollbar style - rxvt (default), plain (compact), next or xterm
 URxvt.scrollstyle:  rxvt
 URxvt.scrollBar:    false
@@ -25,7 +31,7 @@ URxvt*scrollWithBuffer: true
 URxvt*scrollTtyKeypress: true
 
 ! URxvt.font: 9x15bold
-URxvt.font: xft:terminus:bold:size=24:antialias=false
+URxvt.font: xft:terminus:bold:size=24:antialias=true
 ! URxvt.font: xft:terminus:bold:size=24:antialias=false
 
 ! Taskbar icon
@@ -48,11 +54,15 @@ URxvt.url-select.underline:	true
 URxvt.colorUL: #4682B4
 
 ! Copy/paste to clipboard
-URxvt.keysym.M-c:			perl:clipboard:copy
-URxvt.keysym.M-v:			perl:clipboard:paste
+! URxvt.keysym.M-c:			perl:clipboard:copy
+! URxvt.keysym.M-v:			perl:clipboard:paste
+URxvt.keysym.Shift-Control-C:			perl:clipboard:copy
+URxvt.keysym.Shift-Control-V:			perl:clipboard:paste
 URxvt.keysym.M-C-v:			perl:clipboard:paste_escaped
 URxvt.clipboard.copycmd:	xclip -i -selection clipboard
 URxvt.clipboard.pastecmd:	xclip -o -selection clipboard
+! Disable iso14755 Mode
+URxvt.iso14755: False
 
 ! Tabs
 ! URxvt.perl-ext-common: default,tabbed
@@ -72,8 +82,8 @@ URxvt.clipboard.pastecmd:	xclip -o -selection clipboard
 URxvt.saveLines: 1000
 
 ! Cursor 
-Xcursor.theme:	DMZ-White
-Xcursor.size:	48
+Xcursor*theme:	DMZ-White
+Xcursor*size:	48
 
 ! Xft settings
 Xft.dpi:       96
