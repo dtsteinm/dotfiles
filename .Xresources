@@ -41,13 +41,14 @@ URxvt.font: xft:terminus:bold:size=24:antialias=true
 URxvt*loginShell: false
 
 URxvt.perl-lib:			/home/dylan/.urxvt/urxvt-perls/
-URxvt.perl-ext-common:	default,clipboard,keyboard-select,url-select
+! URxvt.perl-ext-common:	default,clipboard,keyboard-select,url-select
+URxvt.perl-ext-common:	default,clipboard,url-select
 
-URxvt.keysym.M-Escape:	perl:keyboard-select:activate
-URxvt.keysym.M-s:		perl:keyboard-select:search
+! URxvt.keysym.M-Escape:	perl:keyboard-select:activate
+! URxvt.keysym.M-s:		perl:keyboard-select:search
 
 ! Yankable URLs (requires urxvt-perls)
-URxvt.keysym.M-u:			perl:url-select:select_next
+URxvt.keysym.M-k:			perl:url-select:select_next
 URxvt.url-select.launcher:	/usr/bin/chromium -new-tab
 URxvt.url-select.underline:	true
 ! Color URLs
