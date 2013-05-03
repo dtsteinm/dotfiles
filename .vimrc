@@ -116,6 +116,8 @@ else
 	" Open new split window
 	nnoremap <silent><Leader>s :split<CR>
 	inoremap <silent><Leader>s <C-o>:split<CR>
+	nnoremap <silent><Leader>v :vsplit<CR>
+	inoremap <silent><Leader>v <C-o>:vsplit<CR>
 	nnoremap <silent><Leader>x :close<CR>
 	inoremap <silent><Leader>x <C-o>:close<CR>  "Careful with this one
 
