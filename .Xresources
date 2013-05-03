@@ -19,6 +19,7 @@ URxvt*highlightTextColor: black
 
 ! scrollbar style - rxvt (default), plain (compact), next or xterm
 URxvt.scrollstyle:  rxvt
+URxvt.jumpScroll:	false
 URxvt.scrollBar:    false
 
 ! do not scroll with output
@@ -80,7 +81,7 @@ URxvt.iso14755: False
 ! URxvt.perl-ext-common:
 
 ! Limit saved lines
-URxvt.saveLines: 1000
+URxvt.saveLines: 10000
 
 ! Cursor 
 Xcursor*theme:	DMZ-White
