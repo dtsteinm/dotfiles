@@ -37,7 +37,7 @@ source $HOME/.zsh_alias
 fpath=($HOME/.zfunc "${fpath[@]}")
 
 autoload -Uz agedu apt-upgrade backups df extract purge-old purge-conf
-autoload -Uz re_ re- shorten unmute guess wearout
+autoload -Uz re_ re- shorten unmute guess wearout fix-keyring
 
 # Custom prompt
 PS1=%m:%2~%#\ 

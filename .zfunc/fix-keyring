@@ -1,0 +1,14 @@
+# Mostly stolen from Samat Jain:
+# http://old.tamasrepus.hotnudiegirls.com/pages/GNU+screen+and+SSH+agent+forwarding
+
+local KEYFILE="/var/run/screen/S-$USER/keyring"
+local -a SSHVARS
+SSHVARS=(SSH_CLIENT SSH_TTY SSH_AUTH_SOCK SSH_AGENT_PID SSH_CONNECTION DISPLAY)
+
+if [[ $TERM == 'screen' ]]
+then source $KEYFILE
+else 
+	for x in ${SSHVARS} ; do
+		eval echo export $x="\$$x"
+	done 1> $KEYFILE
+fi
