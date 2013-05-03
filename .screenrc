@@ -10,7 +10,7 @@ defutf8 on
 sessionname et-cetera
 
 # Default start up windows
-screen -t zsh 0
+screen -t zsh 0 zsh -l
 screen -t irssi 1 zsh -c 'command irssi'
 screen -t music 2 zsh -c 'while true; do ncmpcpp; done'
 screen -t vim 3 zsh -c 'while true; do vim; done'
