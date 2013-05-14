@@ -13,3 +13,6 @@ export PYTHONSTARTUP=$HOME/.pythonstartup
 
 # Use ssh-add when git asks for password
 export SSH_ASKPASS=ssh-add
+
+# Define directory colors
+eval $(dircolors)

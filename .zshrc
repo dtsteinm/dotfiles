@@ -42,3 +42,9 @@ autoload -Uz re_ re- shorten unmute guess wearout fix-keyring
 # Custom prompt
 PS1=%m:%2~%#\ 
 
+zle_highlight=(default)
+
+zstyle ':completion:*' menu select=20
+
+# Colored completion listings
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
