@@ -34,3 +34,14 @@ alias svim='sudoedit'
 # alias apt-upgrade='sudo apt-get update && sudo aptitude safe-upgrade'
 # alias deleted='lsof +L1'
 # alias piano='screen -S piano pianobar'
+
+# Global aliases
+alias -g gp='| grep -i'
+
+# Suffix alias
+alias -s py=vim
+alias -s txt=vim
+alias -s log="less -MN"
+alias -s html=chromium
+alias -s mkv=mplayer
+alias -s avi=mplayer
