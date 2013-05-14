@@ -200,12 +200,12 @@ input {
 audio_output {
 	type		"alsa"
 	name		"MPD ALSA Output"
+	options		"dev=dmixer"
+	device		"plug:dmix"
 	# device		"mpdvol"
 	# mixer_type	"alsa"
 	# mixer_device "mpdvol"
 	# mixer_control "MPD"
-	# options		"dev=dmixer"
-	# device		"plug:dmix"
 #	device		"hw:0,0"		# optional
 #	format		"44100:16:2"	# optional
 #	mixer_device	"default"	# optional
@@ -215,14 +215,14 @@ audio_output {
 #
 # An example of an OSS output:
 #
-#audio_output {
-#	type		"oss"
-#	name		"My OSS Device"
+audio_output {
+	type		"oss"
+	name		"My OSS Device"
 #	device		"/dev/dsp"			# optional
 #	format		"44100:16:2"		# optional
 #	mixer_device	"/dev/mixer"	# optional
 #	mixer_control	"PCM"			# optional
-#}
+}
 #
 # An example of a shout output (for streaming to Icecast):
 #

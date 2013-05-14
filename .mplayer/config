@@ -17,7 +17,8 @@ cache=40960             # Use a memory cache
 
 # Audio options:
 channels=2              # Downmix to Stereo (2 channel) sound
-ao=alsa
+#ao=alsa:device=movie
+ao=oss
 afm=ffmpeg,faad,liba52  # Don't use mpg123
 
 # Extension Profiles
