@@ -9,8 +9,8 @@ map k 10k
 map l 15l
 
 " Quickly jump between tabs
-map J gt
-map K gT
+map J gT
+map K gt
 
 " Select last active tab
 map g; <C-^>
