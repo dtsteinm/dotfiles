@@ -27,6 +27,7 @@ alias svim='sudoedit'
 
 # Global aliases
 alias -g gp='| grep -i'
+alias -g less='| less'
 
 # Suffix alias
 alias -s py=vim
