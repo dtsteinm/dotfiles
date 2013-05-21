@@ -1,7 +1,12 @@
 # Wrapper for agedu disk usage reporting tool
 emulate -L zsh
 
+local COMMAND="/usr/bin/agedu"
+local PRECOMMAND=""
+
 # If no dir provided, default to home
-if [[ -z $1 ]] 1=$HOME
+if [[ -z $1 ]] 1="$HOME"
+#if [[ ! -w $1 ]] PRECOMMAND="/usr/bin/sudo"
+
 # Agedu: scan dir; web output; remove agedu.dat
-/usr/bin/agedu -s $1 --files -w -R 
+$PRECOMMAND $COMMAND -s $1 --files -w -R 
