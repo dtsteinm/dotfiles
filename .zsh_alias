@@ -1,8 +1,11 @@
 # User-defined aliases
+alias apt-clean='sudo apt-get autoremove'
 alias apt-install='sudo apt-get install'
+alias apt-purge='sudo apt-get purge'
+alias apt-remove='sudo apt-get remove'
 alias apt-search='aptitude search'
 alias apt-show='aptitude show'
-alias apt-remove='sudo apt-get remove'
+alias apt-why='aptitude why'
 alias cp='cp -iv'
 alias diff='colordiff'
 alias echo-path='echo -e ${PATH//:/\\n}'
@@ -19,6 +22,7 @@ alias rename='rename -v'
 alias reverse='grep -v'
 alias rm='rm -Iv' 
 alias rmderp='rmdir -p' # Herpa
+alias rmdir='rm -rI'
 alias svim='sudoedit'
 
 # Global aliases
