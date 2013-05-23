@@ -1,0 +1,25 @@
+# set wallpaper
+/home/dylan/bin/background.sh &
+
+# compositing with just acceleration
+#xcompmgr -n &
+#compton -b &
+# compositing with fading, drop shadows and acceleration
+#xcompmgr -D3 -t0.5 -l0.5 -o0.5 -cCfF &
+compton -b -D3 -f &
+
+# start screensaver daemon
+xscreensaver &
+
+# Panel
+# tint2 &
+# fbpanel &
+# volti &
+
+# Turn off bell
+xset b off &
+
+# Merge Xresource settings
+xrdb -merge ~/.Xresources &
+
+urxvt &

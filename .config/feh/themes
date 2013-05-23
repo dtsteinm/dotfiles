@@ -1,0 +1,10 @@
+feh --fullscreen \
+--menu-font "FreeSans/18" --font "FreeSans/18" \
+--fontpath "/usr/share/fonts/truetype/freefont" \
+--draw-tinted --draw-filename --info "echo %wx%h" \
+--action "gimp %F"
+
+reader --fullscreen \
+--menu-font "FreeSans/18" --font "FreeSans/18" \
+--fontpath "/usr/share/fonts/truetype/freefont" \
+--draw-tinted --zoom fill --cycle-once

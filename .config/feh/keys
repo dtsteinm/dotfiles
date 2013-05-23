@@ -1,0 +1,9 @@
+scroll_left         C-h
+scroll_down         C-j
+scroll_up           C-k
+scroll_right        C-l
+
+prev_img            h
+scroll_down_page    j
+scroll_up_page      k
+next_img            l
