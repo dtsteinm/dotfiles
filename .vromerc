@@ -53,6 +53,7 @@ set previouspattern=^Prev(ious)?(Page)?|‹‹$
 
 " add custom quick marks
 set qm_e=chrome://extensions
+set qm_f=chrome://flags
 set qm_s=chrome://settings
 " custom quick marks longer than one key
 set qm_h=http://thefuckingweather.com
