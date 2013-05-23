@@ -52,7 +52,7 @@ else
 	Bundle 'vim-scripts/pep8'
 	Bundle 'vim-scripts/TaskList.vim'
 	Bundle 'vim-scripts/The-NERD-Commenter'
-	" Bundle 'rob-b/rope-vim'
+	Bundle 'rob-b/rope-vim'
 	Bundle 'davidhalter/jedi-vim'
 	Bundle 'ervandew/supertab'
 	"Bundle 'fs111/pydoc.vim'
@@ -197,8 +197,7 @@ else
 	" let g:jedi#autocompletion_command = "<Tab>"
 	let g:jedi#use_tabs_not_buffers = 0
 	let g:jedi#popup_select_first = 0
-	" let g:jedi#goto_command = "<Leader>gt"
-    " let g:jedi#rename_command = "<Leader>r"
+    let g:jedi#rename_command = ""
 	let g:jedi#goto_command = "<Leader>j"
 	map <silent><buffer><Leader>j :call jedi#goto()<CR>
 
@@ -216,10 +215,10 @@ else
 	map <Leader>b :FufBuffer<CR>
 
 	" Ropevim
-	" " Go to definition
-    " map <Leader>j :RopeGotoDefinition<CR>
-	" " Rename/Refactor
-    " map <Leader>r :RopeRename<CR>
+	" Go to definition
+	map <Leader>j :RopeGotoDefinition<CR>
+	" Rename/Refactor
+	map <Leader>r :RopeRename<CR>
 
 	" Ack Searching
 	"nmap <Leader>a <Esc>:Ack!
