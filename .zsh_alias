@@ -1,6 +1,7 @@
 # User-defined aliases
 alias apt-clean='sudo apt-get autoremove'
 alias apt-install='sudo apt-get install'
+alias apt-simulate='apt-get --simulate install'
 alias apt-purge='sudo apt-get purge'
 alias apt-remove='sudo apt-get remove'
 alias apt-search='aptitude search'
@@ -32,6 +33,7 @@ alias -g less='| less'
 # Suffix alias
 alias -s py=vim
 alias -s txt=vim
+alias -s pdf=zathura
 alias -s log="less -MN"
 alias -s html=chromium
 alias -s mkv=mplayer
