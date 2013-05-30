@@ -10,10 +10,15 @@
 source "$HOME/.profile"
 
 # Python Startup
-export PYTHONSTARTUP="$HOME/.pythonstartup"
+PYTHONSTARTUP="$HOME/.pythonstartup"
 
 # Use ssh-add when git asks for password
-#export SSH_ASKPASS=ssh-add
+SSH_ASKPASS=ssh-add
+
+# Fix history-substring-search issue in zsh5
+DEBIAN_PREVENT_KEYBOARD_CHANGES=yes
 
 # Define directory colors
 eval $(dircolors)
+
+source "$HOME/.keychain/${HOST}-sh"

@@ -14,14 +14,14 @@ setopt correct #all
 setopt hist_ignore_all_dups hist_ignore_space
 
 # Custom keybindings
-bindkey '\e[A' history-search-backward
-bindkey '\e[B' history-search-forward
+bindkey '\e[A' history-beginning-search-backward
+bindkey '\e[B' history-beginning-search-forward
 bindkey -M viins '^R' vi-history-search-backward
 bindkey -M vicmd '^R' vi-history-search-backward
 bindkey -M viins 'jj' vi-cmd-mode
 # bindkey -s "^[[18~" "ls -l\n" #<F7>
 bindkey -s '^P' "^Uncmpcpp\n"
-bindkey -s '^N' "^Uunmute\n"
+#bindkey -s '^N' "^Uunmute\n"
 bindkey -s '^O' "^U/usr/bin/screen -D -RR^J"
 
 # The following lines were added by compinstall
@@ -40,7 +40,7 @@ fpath=($HOME/.zfunc "${fpath[@]}")
 
 # Load my functions
 autoload -Uz agedu apt-upgrade backups df extract purge-old purge-conf
-autoload -Uz re_ re- shorten unmute guess wearout fix-keyring
+autoload -Uz re_ re- shorten unmute guess wearout #fix-keyring
 
 # Custom prompt
 PS1=%m:%2~%#\ 
@@ -53,4 +53,4 @@ zstyle ':completion:*' menu select=20
 # Colored completion listings
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
-keychain
+#keychain --agents 'ssh' --inherit 'any-once' --confirm --quiet
