@@ -53,10 +53,10 @@ else
 	Bundle 'vim-scripts/TaskList.vim'
 	Bundle 'vim-scripts/The-NERD-Commenter'
 	Bundle 'rob-b/rope-vim'
-	Bundle 'davidhalter/jedi-vim'
-	Bundle 'ervandew/supertab'
+	"Bundle 'davidhalter/jedi-vim'
+	"Bundle 'ervandew/supertab'
 	"Bundle 'fs111/pydoc.vim'
-	"Bundle 'Valloric/YouCompleteMe'
+	Bundle 'Valloric/YouCompleteMe'
 	"Bundle 'Shougo/neocomplcache'
 	"Bundle 'msanders/snipmate.vim'
 	"Bundle 'mileszs/ack.vim'
@@ -193,18 +193,18 @@ else
 	let g:fuf_file_exclude = '\v\~$|\.(o|exe|dll|bak|orig|swp|pyc)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
 
 	" Jedi-vim Goto
-	let g:jedi#popup_on_dot = 0
-	" let g:jedi#autocompletion_command = "<Tab>"
-	let g:jedi#use_tabs_not_buffers = 0
-	let g:jedi#popup_select_first = 0
-    let g:jedi#rename_command = ""
-	let g:jedi#goto_command = "<Leader>j"
-	map <silent><buffer><Leader>j :call jedi#goto()<CR>
+	" let g:jedi#popup_on_dot = 0
+	" " let g:jedi#autocompletion_command = "<Tab>"
+	" let g:jedi#use_tabs_not_buffers = 0
+	" let g:jedi#popup_select_first = 0
+    " let g:jedi#rename_command = ""
+	" let g:jedi#goto_command = "<Leader>j"
+	" map <silent><buffer><Leader>j :call jedi#goto()<CR>
 
 	" Tab completion/documentation (SuperTab)
 	" au FileType python set omnifunc=pythoncomplete#Complete
-	au FileType python set omnifunc=jedi#complete
-	let g:SuperTabDefaultCompletionType = "context"
+	" au FileType python set omnifunc=jedi#complete
+	" let g:SuperTabDefaultCompletionType = "context"
 	set completeopt=menuone,longest,preview
 
 	" NERDTree File Browser
