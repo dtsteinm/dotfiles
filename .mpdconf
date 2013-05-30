@@ -199,7 +199,8 @@ input {
 #
 audio_output {
 	type		"alsa"
-	name		"MPD ALSA Output"
+	enabled		"no"
+	name		"ALSA Output"
 	options		"dev=dmixer"
 	device		"plug:dmix"
 	# device		"mpdvol"
@@ -217,18 +218,18 @@ audio_output {
 #
 audio_output {
 	type		"oss"
-	name		"My OSS Device"
-#	device		"/dev/dsp"			# optional
-#	format		"44100:16:2"		# optional
-#	mixer_device	"/dev/mixer"	# optional
-#	mixer_control	"PCM"			# optional
+	name		"OSS Device"
+	device		"/dev/dsp"			# optional
+	format		"44100:16:2"		# optional
+	mixer_device	"/dev/mixer"	# optional
+	mixer_control	"PCM"			# optional
 }
 #
 # An example of a shout output (for streaming to Icecast):
 #
 audio_output {
 	type		"shout"
-	enabled		"no"
+#	enabled		"no"
 	encoding	"mp3"			# optional
 	name		"Dylan's Random Shout"
 	host		"localhost"
@@ -236,11 +237,11 @@ audio_output {
 	mount		"/mpd.mp3"
 	password	"hackme"
 #	quality		"5.0"
-	bitrate		"96"
+	bitrate		"64"
 	format		"44100:16:1"
 	protocol	"icecast2"		# optional
 	user		"source"		# optional
-	description	"Random songs from my collection, including a lot of J-Pop and Weird Al Yankovic."	# optional
+	description	"Random songs from my collection, including a lot of J-Pop."	# optional
 #	genre		"jazz"			# optional
 	public		"no"			# optional
 	timeout		"2"				# optional
@@ -262,6 +263,7 @@ audio_output {
 #
 audio_output {
 	type		"httpd"
+	enabled		"no"
 	name		"MPD HTTP Stream"
 	encoder		"lame"			# optional, vorbis or lame
 #	host		"localhost"		# optional?
@@ -274,13 +276,14 @@ audio_output {
 #
 # An example of a pulseaudio output (streaming to a remote pulseaudio server)
 #
-audio_output {
-	type		"pulse"
-	name		"MPD Pulse Output"
+# audio_output {
+	# type		"pulse"
+	# enabled		"no"
+	# name		"Pulse Output"
 	#server		"localhost"		# optional
 	#sink		"alsa_output.pci-0000_00_1b.0.analog-stereo"
 	#sink		"alsa_output"
-}
+# }
 # Fast Fourier Transform data
 #
 audio_output {
@@ -305,10 +308,11 @@ audio_output {
 #
 ## An example of a null output (for no audio output):
 #
-#audio_output {
-#	type		"null"
-#	name		"My Null Output"
-#}
+audio_output {
+	type		"null"
+	enabled		"yes"
+	name		"Null Output"
+}
 #
 # This setting will change all decoded audio to be converted to the specified
 # format before being passed to the audio outputs. By default, this setting is
